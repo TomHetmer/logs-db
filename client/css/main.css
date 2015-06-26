@@ -1,0 +1,73 @@
+/* th 2014 */
+
+/* fix colors*/
+/*body {background-color: black; color: white}*/
+
+/* hack the color*/
+.container > *  {background-color: white; color:black}
+/* hack padding */
+.marketing  {padding-left: 20px; padding-right: 20px; padding-top: 20px}
+/* hack padding */
+.marketing, .navbar  {width: 1214px;}
+
+.navbar {margin-bottom:0px !important; background-color: black}
+
+/* fixing widths */
+.container{width:1214px}
+
+.page-header {
+padding:0;margin:0;
+}
+
+.navbar .nav > li > a {
+	color: #fff;
+	border-radius: 4px;
+	border-bottom: 2px solid black;
+}
+
+.navbar .nav>li.active>a,
+.navbar .nav>li>a:hover {
+	/*background-color: #f0ad4e;*/
+	border-bottom: 2px solid #f0ad4e;
+	color: #fff;
+}
+
+
+.navbar-brand {
+	font-family: Open Sans;
+	color: #fff;
+}
+
+.navbar-brand:hover {
+	color: #fff;
+}
+
+body {
+	font-family: "Open Sans";
+	text-rendering: optimizeLegibility;
+	background: url('http://db.insma.org/client/img/light_noise_diagonal.png') !important;
+}
+
+h1, h2 {
+	font-family: "Open Sans";
+	text-rendering: optimizeLegibility;
+	/*color: #f0ad4e;*/
+}
+
+h1 {
+/*	font-weight: 400;
+	font-size: 56px;*/
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

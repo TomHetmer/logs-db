@@ -1,0 +1,116 @@
+-- MySQL dump 10.13  Distrib 5.1.66, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: toto_logs
+-- ------------------------------------------------------
+-- Server version	5.1.66-0+squeeze1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Station`
+--
+
+DROP TABLE IF EXISTS `Station`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Station` (
+  `id` varchar(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Known stations';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Station`
+--
+
+LOCK TABLES `Station` WRITE;
+/*!40000 ALTER TABLE `Station` DISABLE KEYS */;
+INSERT INTO `Station` VALUES ('E11'),('E11a');
+/*!40000 ALTER TABLE `Station` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` datetime NOT NULL,
+  `station` varchar(4) NOT NULL,
+  `qrh` int(11) NOT NULL,
+  `callup` int(11) NOT NULL DEFAULT '-1',
+  `callup2` int(11) NOT NULL DEFAULT '-1',
+  `gc` int(11) NOT NULL DEFAULT '-1',
+  `body` text NOT NULL,
+  `reporter` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logs`
+--
+
+LOCK TABLES `logs` WRITE;
+/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` VALUES (6,'2014-02-04 13:00:00','E11',14666,13,3,0,'','th'),(7,'2014-02-04 14:00:00','E11A',10690,98,4,10,'74675 36659 62636 24894 35446 10685 83112 53931 81079 03623','th');
+/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logs_new`
+--
+
+DROP TABLE IF EXISTS `logs_new`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logs_new` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` datetime NOT NULL,
+  `station` varchar(4) NOT NULL,
+  `qrh` decimal(11,2) NOT NULL,
+  `call_number` varchar(5) NOT NULL,
+  `call_id` varchar(5) NOT NULL,
+  `gc` int(11) NOT NULL DEFAULT '-1',
+  `body` text NOT NULL,
+  `reporter` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logs_new`
+--
+
+LOCK TABLES `logs_new` WRITE;
+/*!40000 ALTER TABLE `logs_new` DISABLE KEYS */;
+INSERT INTO `logs_new` VALUES (6,'2014-02-04 13:00:00','E11','14666.00','','',0,'','th'),(7,'2014-02-04 14:00:00','E11A','10690.00','','',10,'74675 36659 62636 24894 35446 10685 83112 53931 81079 03623','th'),(14,'2014-02-22 14:10:00','E11A','4625.00','','985',10,'19851 15615 13233 28732 89699 77096 03548 88747 85085 95375','foo'),(17,'2014-02-24 03:52:00','E11a','5082.00','410','',33,'ATTENTION\n03956 33761 00540\n99004 58041 99563\n03275 93838 82394\n87479 12421 53743\n36767 17514 17598\n95656 08974 34738\n81120 65581 56678\n74652 73212 60181\n13977 62846 61603\n62586 51311 13117\n20310 58908 79215\nOUT','Agent 157 '),(18,'2014-02-24 03:52:00','E11a','14410.00','952','',31,'ATTENTION\n27878 37800 22439\n06022 04282 89603\n59434 85593 53615\n94813 06398 01168\n11992 64048 49089\n26346 37987 15520\n18330 65081 95353\n13315 20323 45235\n40427 17846 87845\n59596\nOUT','Agent 157 '),(19,'2014-02-24 03:52:00','S06s','8234.00','713','860',5,'[0840z freq: 9270]\n\n39534 15223 15636 47891 23247 860 5 00000','Agent 157 '),(20,'2014-02-24 03:52:00','S06s','14675.00','872','904',5,'NOTE: FREQ OFF. WAS BROADCASTED ON 14675.20\n[0910z freq: 12830 kHz (Broadcasted off freq at 12830.12 kHz)]\n\n34142 78386 91497 82953 24162 904 5 00000','Agent 157 '),(21,'2014-02-24 03:52:00','E11a','10800.00','635','',37,'ATTENTION\n98192 00334 52976\n40877 68356 94712\n88441 94876 94196\n28679 14617 66115\n91722 51282 35800\n78111 96557 04832\n18759 52720 25515\n41438 81616 28614\n82968 93665 12265\n56862 24641 08651\n69083 79848 43190\n31996 69191 78352\n41217\nOUT','Agent 157 '),(22,'2014-02-24 00:00:00','S30','3756.00','','',10,'78МВ 12ЦИ 79АЙ ПЬХЩ 6ЕХБ ЦП3Ь ЩТ3О ЦИХС З7ПМ ЬО6П','Maris'),(32,'2014-02-27 03:15:00','E11','5779.00','253','',0,'New/Unscheduled Tx','Agent 157 [MonochromeReflections]'),(33,'2014-03-06 20:00:00','S693','3128.50','','',7,'90 252 РАСТУН 26 38 24 68','PeterSpb'),(41,'2014-03-07 08:36:39','E11a','10690.00','649','',33,'02691 88818 59099 67348 20220 28113 38905 05875 77559 46930 02348 38731 93604 51481 36423 69896 74242 89795 64771 26290 83388 80746 44135 67728 76717 03526 82215 63746 90444 65195 47335 96578 58108','Shazepe'),(42,'2014-03-07 21:12:39','E06 ','5197.00','634','',18,'634 634 634 no audio then Police Academy tune and Russian voice \"Telokompaniya Varners..\" Off. Tv Company Warner\'s..','Maris'),(43,'2014-03-08 07:00:00','XPA','11409.00','456','',4,'07617 00001 00000 10140\n','Numb3r'),(44,'2014-03-11 11:10:43','X06','16317.00','1234','',1234,'','Gold88'),(45,'2014-03-13 17:20:56','m12','9264.00','124 1','5196 ',0,'31890 51940 10160.......95416 14698','Vassilis'),(46,'2014-03-13 17:32:26','E11','9371.00','414/3','414/3',33,'17170 81485 29195 50292 14172 86325 12257 28914 42437 18014 17130  65613 53471 98638 38518 87692 02861 77821 49512 45211 39321 97552 78411 59192 50989 17362 86693 97358 46239 70814  86503 79143 71466 ATTENTION repeat X1 OUT','Vassilis'),(47,'2014-03-16 15:40:00','E11','15915.00','228/0','228/0',0,'228/00.............................','waveseeker'),(48,'2014-03-16 15:40:00','E11','15915.00','228/0','228/0',0,'228/00.............................','waveseeker');
+/*!40000 ALTER TABLE `logs_new` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'toto_logs'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-03-19  9:21:00
